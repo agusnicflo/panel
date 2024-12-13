@@ -1,195 +1,320 @@
 .apariencia-container {
-    display: flex;
-    width: 100%;
-    height: 100vh; /* Asegura que ocupe todo el alto de la pantalla */
-    justify-content: space-between;
-  }
-  
-  .left-container {
-    display: flex;
-    flex-direction: column; /* Organiza los elementos verticalmente */
-    width: 50%;
-    height: 100%; /* Asegura que ocupe toda la altura de la pantalla */
-    padding: 20px;
-  }
-  
-  .top {
-    flex: 1; /* Ocupa la mitad superior */
-    background-color: #ffffff; /* Fondo gris claro */
-    border: 2px solid #ffffff; /* Borde gris */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    margin-bottom: 20px; /* Espacio entre los contenedores */
-    padding: 20px;
-    border-radius: 8px; /* Bordes redondeados */
-  }
-  
-  .bottom {
-    flex: 1; /* Ocupa la mitad inferior */
-    background-color: #ffffff; /* Fondo gris claro */
-    border: 2px solid #ccc; /* Borde gris */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    padding: 20px;
-    border-radius: 8px; /* Bordes redondeados */
-  }
-  
-  .right-container {
-    width: 50%;
-    padding: 20px;
-  }
-  
-  .right-container .box {
-    height: 100%; /* Asegura que ocupe toda la altura disponible */
-    background-color: #ffffff; /* Fondo gris claro */
-    border: 2px solid #ccc; /* Borde gris */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    padding: 20px;
-    border-radius: 8px; /* Bordes redondeados */
-  }
+  display: flex;
+  width: 100%;
+  height: 100vh; /* Asegura que ocupe todo el alto de la pantalla */
+  justify-content: space-between;
+}
 
-  .apariencia-container {
-    display: flex;
-    width: 100%;
-    height: 100vh;
-  }
-  
-  .left-container,
-  .right-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-  
-  .left-container {
-    width: 50%;
-    padding: 10px;
-  }
-  
-  .right-container {
-    width: 50%;
-    padding: 10px;
-  }
-  
-  .box {
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin: 10px;
-    padding: 10px;
-  }
-  
-  .top {
-    flex: 1;
-  }
-  
-  .bottom {
-    flex: 1;
-  }
-  
-  .image-upload-container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 10px;
-    width: 100%;
-    margin-bottom: 30px;
-  }
-  
-  .profile-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 2px solid #ccc;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    flex: 0 0 auto;
-  }
-  
-  .profile-icon {
-    width: 80px; /* Tamaño de la imagen */
-    height: 80px; /* Mantener la imagen cuadrada */
-    border-radius: 50%; /* Hacerla redonda */
-    object-fit: cover;
-  }
-  
-  .image-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .upload-button {
-    background-color: #007bff;
-    color: white;
-    padding: 8px 12px;
+.left-container {
+  display: flex;
+  flex-direction: column; /* Organiza los elementos verticalmente */
+  width: 70%;
+  height: 100%; /* Asegura que ocupe toda la altura de la pantalla */
+  padding: 5px;
+}
+
+.top {
+  flex: 1; /* Ocupa la mitad superior */
+  background-color: #ffffff; /* Fondo gris claro */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  margin-bottom: 20px; /* Espacio entre los contenedores */
+  padding: 20px;
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+.bottom {
+  flex: 1; /* Ocupa la mitad inferior */
+  background-color: #ffffff; /* Fondo gris claro */
+  border: 2px solid #ccc; /* Borde gris */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  padding: 20px;
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+.right-container {
+  width: 20%;
+  padding: 20px;
+  height: 100%;
+}
+
+.right-container .box {
+  height: 100%; /* Asegura que ocupe toda la altura disponible */
+  background-color: #ffffff; /* Fondo gris claro */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  padding: 20px;
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+.apariencia-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.left-container,
+.right-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.left-container {
+  width: 50%;
+  padding: 10px;
+}
+
+.right-container {
+  width: 50%;
+  padding: 10px;
+}
+
+.box {
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.top {
+  flex: 1;
+}
+
+.bottom {
+  flex: 1;
+}
+
+.image-upload-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.profile-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 0 0 auto;
+}
+
+.profile-icon {
+  width: 80px; /* Tamaño de la imagen */
+  height: 80px; /* Mantener la imagen cuadrada */
+  border-radius: 50%; /* Hacerla redonda */
+  object-fit: cover;
+}
+
+.image-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.upload-button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.upload-button:hover {
+  background-color: #0056b3;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Ocultar el input de tipo file */
+input[type="file"] {
+  display: none;
+}
+
+/* Estilo para el botón personalizado */
+.custom-file-upload {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  width: 300px;
+}
+
+.custom-file-upload:hover {
+  background-color: #0056b3;
+}
+
+.list {
+  display: flex;
+  flex-direction: column; /* Apilar los divs verticalmente */
+  gap: 10px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.extra-box {
+  font-size: 13px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.boxtop {
+  display: flex;
+  flex-direction: column; /* Apilar los elementos verticalmente */
+  align-items: flex-start;
+  gap: 10px;
+  box-shadow: 0 4px 10px rgba(5, 5, 5, 0.1); /* Sombra sutil */
+  padding: 10px;
+  width: 600px;
+  margin-bottom: 20px;
+}
+
+.boxbottom {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las imágenes se muevan a la siguiente fila cuando sea necesario */
+  gap: 10px; /* Espacio entre las imágenes */
+  padding: 10px; /* Espacio dentro del contenedor */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  background-color: white;
+}
+
+.imgcontainer {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las imágenes se envuelvan cuando no haya espacio */
+  gap: 30px; /* Espacio entre las imágenes */
+
+  align-items: center; /* Alinea las imágenes verticalmente */
+  width: 100%;
+}
+
+.tema {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ccc; /* Opcional: Agrega un borde */
+  border-radius: 8px; /* Opcional: Bordes redondeados */
+}
+
+.temas {
+  flex: 0 1 130px; /* Las imágenes ocupan un 200px mínimo, pero pueden crecer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-container {
+  width: 35%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+  display: flex;
+  justify-content: center; /* Centra el contenido dentro del contenedor */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  overflow: hidden;
+}
+
+.box2 {
+  width: 100%; /* Asegura que el box ocupe todo el ancho del contenedor */
+  max-width: 600px; /* Limita el tamaño máximo del box para evitar que se expanda demasiado */
+  text-align: center; /* Centra el contenido dentro del box */
+  display: flex;
+  flex-direction: column; /* Pone los elementos (botones + imagen) en columna */
+  align-items: center; /* Centra los elementos horizontalmente */
+  box-sizing: border-box; /* Incluye los márgenes y el padding dentro del ancho total */
+  padding: 10px; /* Espacio interno para evitar que el contenido quede pegado a los bordes */
+}
+
+.box2 button {
+  margin: 10px; /* Espacio entre los botones */
+  padding: 10px 40px; /* Tamaño del botón */
+}
+
+.box2 img {
+    width: 100%; /* La imagen ocupará todo el ancho disponible del contenedor */
+    height: 500px; /* Fija la altura de la imagen a 200px */
+    object-fit: contain; /* Asegura que la imagen se ajuste sin cortarse */
+    margin-top: 10px; /* Espacio entre la imagen y los botones */
+    margin-bottom: 10px;
+}
+
+.btnlink{
+    background-color: #bbdcff;
     border: none;
+    box-shadow: 0 4px 10px rgba(5, 5, 5, 0.1); /* Sombra sutil */
+    border-radius: 8px;
+
+}
+
+.btnedit{
+    background-color: rgb(243, 222, 183);
+    color: rgb(226, 150, 18);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(5, 5, 5, 0.1); /* Sombra sutil */
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 50%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
   }
   
-  .upload-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .delete-button {
-    background-color: #f44336;
-    color: white;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
-  .delete-button:hover {
-    background-color: #d32f2f;
-  }
-
-  /* Ocultar el input de tipo file */
-input[type="file"] {
-    display: none;
-  }
-  
-  /* Estilo para el botón personalizado */
-  .custom-file-upload {
-    display: inline-block;
-    padding: 8px 12px;
+  .btnedit {
     background-color: #007bff;
     color: white;
-    border-radius: 10px;
-    cursor: pointer;
-    text-align: center;
-    width: 300px;
-  }
-  
-  .custom-file-upload:hover {
-    background-color: #0056b3;
-  }
-
-  .list {
-    display: flex;
-    flex-direction: column; /* Apilar los divs verticalmente */
-    gap: 10px;
-    width: 100%;
-    margin-top: 10px;
-  }
-  
-  .extra-box {
-    font-size: 13px;
-    padding: 10px;
-    border: 1px solid #ccc;
+    border: none;
+    padding: 10px 20px;
     border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
+    cursor: pointer;
   }
-
-  .box.top {
-    display: flex;
-    flex-direction: column; /* Apilar los elementos verticalmente */
-    align-items: flex-start;
-    gap: 20px;
-  }
-
-  
