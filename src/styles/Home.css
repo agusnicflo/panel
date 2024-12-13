@@ -10,8 +10,8 @@
   
   /* Título */
   .title {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 28px;
+    margin-bottom: 40px;
   }
   
   /* Contenedor de los botones */
@@ -28,8 +28,8 @@
     flex-direction: column;  /* Coloca la imagen y el texto verticalmente */
     align-items: center;
     justify-content: center;
-    border: 2px solid #66737e7c;
-    border-radius: 10px;
+    border: 2px solid #2d2f3160;
+    border-radius: 15px;
     padding: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -56,6 +56,7 @@
     color: #000000;
     text-align: center;
     text-decoration: none;
+    font-weight: bold;
   }
 
   .buttons-container a {
@@ -64,19 +65,19 @@
   
   /* Estilos del botón "Aceptar" */
   .divbtn {
-    margin-top: 20px;
+    margin-top: 50px;
   }
   
   .btn {
     padding: 10px 20px;
-    font-size: 18px;
+    font-size: 16px;
     background-color: #2196F3;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 7px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
-    width: 300px;
+    width: 400px;
   }
   
   .btn:hover {

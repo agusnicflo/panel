@@ -1,0 +1,42 @@
+/* Estilos para el layout del panel de administración */
+.admin-layout {
+    display: flex;
+    height: 100vh; /* Para que ocupe toda la altura de la pantalla */
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #ffffff;
+    color: white;
+    padding: 20px;
+    position: fixed; /* Fijar el sidebar a la izquierda */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin: 15px 0;
+  }
+  
+  .sidebar ul li a {
+    color: rgba(41, 41, 41, 0.747);
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .content {
+    margin-left: 250px; /* Dejamos espacio para el sidebar */
+    padding: 20px;
+    width: calc(100% - 250px); /* Para que ocupe el espacio restante */
+  }
+  
+  h2 {
+    color: #333;
+  }
