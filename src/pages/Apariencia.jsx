@@ -3,7 +3,9 @@ import "../styles/Apariencia.css";
 
 function Apariencia() {
   const [selectedImage, setSelectedImage] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [selectedColor, setSelectedColor] = useState("#ffffff");
+  // eslint-disable-next-line no-unused-vars
   const [secondColor, setSecondColor] = useState("#ffffff");
   const [profileImage, setProfileImage] = useState(null);
 

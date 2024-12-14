@@ -4,6 +4,7 @@ import "../styles/global.css"
 const EditPage = () => {
   const [isActive, setIsActive] = useState(false); // Estado para saber si está activo o no
   const [isScheduleActive, setIsScheduleActive] = useState(false); // Estado para el switch de Agendar Turnos
+  // eslint-disable-next-line no-unused-vars
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedColor, setSelectedColor] = useState("#ffffff"); // Color predeterminado
   const [secondColor, setSecondColor] = useState("#ffffff");
@@ -258,8 +259,8 @@ const EditPage = () => {
               ></span>
             </div>
           </div>
-          <div style={{ marginTop: "8px" }}>
-            <span>Añade imagenes para tus servicios o menu digital</span>
+          <div style={{ marginTop: "8px", fontSize:"14px" }}>
+            <span>Elige imagenes y haz click en la que desees añadir a la plantilla</span>
           </div>
           {/* Contenedor de miniaturas */}
           <div
@@ -390,7 +391,7 @@ const EditPage = () => {
               ></span>
             </div>
           </div>
-          <p>Añade tu disponibilidad horaria para los turnos</p>
+          <p  style={{fontSize: "14px"}}>Añade tu disponibilidad horaria para los turnos</p>
           <div>
             <div
               style={{
@@ -535,7 +536,7 @@ const EditPage = () => {
               }}
             >
               <label htmlFor="diasDisponibles" style={{ margin: "0 10px", color:"gray" }}>
-                Días no disponibles para reservar
+                Días no disponibles
               </label>
 
               <div style={{ display: "flex", alignItems: "center" }}>
