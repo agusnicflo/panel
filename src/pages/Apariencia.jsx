@@ -2,57 +2,48 @@ import React, { useState, useEffect } from "react";
 import "../styles/Apariencia.css";
 
 function Apariencia() {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedColor, setSelectedColor] = useState("#ffffff");
+  const [secondColor, setSecondColor] = useState("#ffffff");
   const [profileImage, setProfileImage] = useState(null);
-  const [selectedImage, setSelectedImage] = useState("/tema1.png");
+
+  const imageColorMapping = {
+    "/tema1.png": ["#bd8677", "#b5735d"], // Rosita
+    "/tema2.png": ["#5d80a2", "#b6808a"], // Verde lima
+    "/tema3.png": ["#a41922", "#be6f23"], // Azul
+    "/tema4.png": ["#727271", "#6d6b69"], // Rosa fuerte
+  };
 
   // Función para manejar la selección de la imagen
   const handleEditClick = () => {
     if (selectedImage) {
-      // Configura las dimensiones y posición de la ventana
-      const width = 900; // Ancho de la ventana
-      const height = 700; // Alto de la ventana
-      const left = (window.innerWidth - width) / 2; // Centrado horizontalmente
-      const top = (window.innerHeight - height) / 2; // Centrado verticalmente
-      const popupWindow = window.open(
-        "",
+      localStorage.setItem("selectedImage", selectedImage);
+      // Configurar dimensiones y posición de la ventana emergente
+      const width = 900;
+      const height = 700;
+      const left = (window.innerWidth - width) / 2;
+      const top = (window.innerHeight - height) / 2;
+      // Abrir la ventana emergente con la ruta "/edit"
+      window.open(
+        "/edit",
         "_blank",
         `width=${width},height=${height},top=${top},left=${left},resizable=no,scrollbars=no`
       );
-      // Crea contenido en la ventana emergente
-      popupWindow.document.write(`
-          <html>
-            <head>
-              <title>Editar Imagen</title>
-              <style>
-                body {
-                  margin: 0;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  height: 100vh;
-                  background-color: #f5f5f5;
-                  font-family: Arial, sans-serif;
-                }
-                img {
-                  max-width: 100%;
-                  max-height: 100%;
-                  border-radius: 8px;
-                  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                }
-              </style>
-            </head>
-            <body>
-              <img src="${selectedImage}" alt="Imagen Seleccionada" />
-            </body>
-          </html>
-        `);
     } else {
       alert("Por favor, selecciona una imagen antes de editar.");
     }
   };
 
   const handleImageClick = (imageSrc) => {
+    setSelectedImage(imageSrc);
+    const colors = imageColorMapping[imageSrc] || ["#ffffff", "#ffffff"]; // Colores por defecto si no hay mapeo
+    setSelectedColor(colors[0]); // Primer color
+    setSecondColor(colors[1]); // Segundo color
+    localStorage.setItem("selectedImage", imageSrc);
+    localStorage.setItem("selectedColor", colors[0]);
+    localStorage.setItem("secondColor", colors[1]);
     setSelectedImage(imageSrc); // Actualiza la imagen seleccionada
+    // Obtén el color asociado a la imagen
   };
 
   const handleImageChange = (event) => {
