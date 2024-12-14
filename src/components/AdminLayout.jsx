@@ -1,17 +1,22 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom'; // Asegúrate de importar Outlet aquí
 import "../styles/AdminLayout.css"; // Asegúrate de que esta ruta sea correcta
+import { BsStars } from "react-icons/bs";
+import { FaCalendarAlt } from "react-icons/fa";
+import { FaCreditCard } from "react-icons/fa";
+import { BsBoxSeamFill } from "react-icons/bs";
+import { GrMoney } from "react-icons/gr";
 
 function AdminLayout() {
   return (
     <div className="admin-layout">
-      <div className="sidebar">
-        <ul>
-          <li><Link to="/admin/apariencia">Apariencia</Link></li>
-          <li><Link to="/admin/calendar">Calendario</Link></li>
-          <li><Link to="/admin/orders">Pedidos</Link></li>
-          <li><Link to="/admin/payment">Métodos de pago</Link></li>
-          <li><Link to="/admin/revenue">Recaudación</Link></li>
+      <div className="sidebar" style={{display:"inlineblock"}}>
+        <ul style={{display:"inlineblock"}}>
+          <li><Link to="/admin/apariencia"><BsStars/> Apariencia</Link></li>
+          <li><Link to="/admin/calendar"><FaCalendarAlt /> Calendario</Link></li>
+          <li><Link to="/admin/orders"><BsBoxSeamFill /> Pedidos</Link></li>
+          <li><Link to="/admin/payment"><FaCreditCard /> Métodos de pago</Link></li>
+          <li><Link to="/admin/revenue"><GrMoney /> Recaudación</Link></li>
         </ul>
       </div>
 

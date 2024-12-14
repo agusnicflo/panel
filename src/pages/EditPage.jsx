@@ -87,21 +87,21 @@ const EditPage = () => {
               gap: "10px", // Espacio entre los botones
             }}
           >
-             {/* Imagen seleccionada */}
-          {selectedImageForMobile && (
-            <img
-              src={selectedImageForMobile}
-              alt="Imagen seleccionada"
-              style={{
-                width: "80%",
-                height: "30%",
-                borderRadius: "10px",
-                objectFit: "cover",
-                position: "absolute",
-                top: "60%",
-              }}
-            />
-          )}
+            {/* Imagen seleccionada */}
+            {selectedImageForMobile && (
+              <img
+                src={selectedImageForMobile}
+                alt="Imagen seleccionada"
+                style={{
+                  width: "80%",
+                  height: "30%",
+                  borderRadius: "10px",
+                  objectFit: "cover",
+                  position: "absolute",
+                  top: "60%",
+                }}
+              />
+            )}
             {/* Imagen de perfil dentro de la silueta */}
             {profileImage && (
               <img
@@ -119,6 +119,11 @@ const EditPage = () => {
                 }}
               />
             )}
+            <div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
             {isActive && (
               <button
                 style={{
@@ -282,7 +287,10 @@ const EditPage = () => {
                   backgroundPosition: "center",
                   marginRight: "10px",
                   cursor: "pointer",
-                  border: selectedImageForMobile === image ? "2px solid blue" : "none", // Resaltar imagen seleccionada
+                  border:
+                    selectedImageForMobile === image
+                      ? "2px solid blue"
+                      : "none", // Resaltar imagen seleccionada
                 }}
               ></div>
             ))}
@@ -297,10 +305,10 @@ const EditPage = () => {
             boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
             padding: "10px",
             display: "flex", // Usamos flex para alinear en línea
-            alignItems: "center",
+            flexDirection: "column", // Organiza los elementos en columnas
           }}
         >
-          <div>
+          <div style={{ display: "flex", alignItems: "center" }}>
             <label htmlFor="scheduleSwitch">Agendar turnos</label>
             <div
               style={{
@@ -354,6 +362,150 @@ const EditPage = () => {
                   transition: "0.4s",
                 }}
               ></span>
+            </div>
+          </div>
+          <p>Añade tu disponibilidad horaria para los turnos</p>
+          <div>
+            <div
+              style={{
+                display: "flex",
+                border: "1px solid black",
+                flexDirection: "column",
+              }}
+            >
+              <label htmlFor="horarioInicio" style={{ margin: "0 10px" }}>
+                Horarios
+              </label>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <div style={{ margin: "5px" }}>
+                  <label htmlFor="desde" style={{ margin: "0 5px" }}>
+                    Desde
+                  </label>
+                  <select
+                    id="horarioInicio"
+                    style={{ marginBottom: "10px", marginLeft: "5px" }}
+                  >
+                    <option value="08:00">08:00</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    {/* Agrega más opciones de horario según lo necesites */}
+                  </select>
+                </div>
+                <div style={{ margin: "5px" }}>
+                  <label style={{ margin: "0 5px" }}>Hasta</label>
+                  <select
+                    id="horarioFin"
+                    style={{ marginBottom: "10px", marginLeft: "5px" }}
+                  >
+                    <option value="08:30">08:30</option>
+                    <option value="09:30">09:30</option>
+                    <option value="10:30">10:30</option>
+                    <option value="11:30">11:30</option>
+                    <option value="12:30">12:30</option>
+                    {/* Agrega más opciones de horario según lo necesites */}
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                border: "1px solid black",
+              }}
+            >
+              <label htmlFor="diasDisponibles" style={{ margin: "0 10px" }}>
+                Días disponibles para reservar
+              </label>
+
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <div style={{ margin: "5px" }}>
+                  <label htmlFor="desde" style={{ margin: "0 5px" }}>
+                    Desde
+                  </label>
+                  <select
+                    id="desde"
+                    name="desde"
+                    style={{ marginBottom: "10px", marginLeft: "5px" }}
+                  >
+                    <option value="lunes">Lunes</option>
+                    <option value="martes">Martes</option>
+                    <option value="miercoles">Miércoles</option>
+                    <option value="jueves">Jueves</option>
+                    <option value="viernes">Viernes</option>
+                    <option value="sabado">Sábado</option>
+                    <option value="domingo">Domingo</option>
+                  </select>
+                </div>
+
+                <div style={{ marginLeft: "10px" }}>
+                  <label htmlFor="hasta">Hasta</label>
+                  <select
+                    id="hasta"
+                    name="hasta"
+                    style={{ marginBottom: "10px", marginLeft: "5px" }}
+                  >
+                    <option value="lunes">Lunes</option>
+                    <option value="martes">Martes</option>
+                    <option value="miercoles">Miércoles</option>
+                    <option value="jueves">Jueves</option>
+                    <option value="viernes">Viernes</option>
+                    <option value="sabado">Sábado</option>
+                    <option value="domingo">Domingo</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                border: "1px solid black",
+              }}
+            >
+              <label htmlFor="diasDisponibles" style={{ margin: "0 10px" }}>
+                Días no disponibles para reservar
+              </label>
+
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <div style={{ margin: "5px" }}>
+                  <label htmlFor="desde" style={{ margin: "0 5px" }}>
+                    Desde
+                  </label>
+                  <select
+                    id="desde"
+                    name="desde"
+                    style={{ marginBottom: "10px", marginLeft: "5px" }}
+                  >
+                    <option value="lunes">Lunes</option>
+                    <option value="martes">Martes</option>
+                    <option value="miercoles">Miércoles</option>
+                    <option value="jueves">Jueves</option>
+                    <option value="viernes">Viernes</option>
+                    <option value="sabado">Sábado</option>
+                    <option value="domingo">Domingo</option>
+                  </select>
+                </div>
+
+                <div style={{ marginLeft: "10px" }}>
+                  <label htmlFor="hasta">Hasta</label>
+                  <select
+                    id="hasta"
+                    name="hasta"
+                    style={{ marginBottom: "10px", marginLeft: "5px" }}
+                  >
+                    <option value="lunes">Lunes</option>
+                    <option value="martes">Martes</option>
+                    <option value="miercoles">Miércoles</option>
+                    <option value="jueves">Jueves</option>
+                    <option value="viernes">Viernes</option>
+                    <option value="sabado">Sábado</option>
+                    <option value="domingo">Domingo</option>
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
         </div>
