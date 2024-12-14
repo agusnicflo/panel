@@ -1,19 +1,27 @@
 import React, { useState, useEffect } from "react";
 
 const EditPage = () => {
-  const [isButtonVisible, setIsButtonVisible] = useState(false);
   const [isActive, setIsActive] = useState(false); // Estado para saber si está activo o no
+  const [isScheduleActive, setIsScheduleActive] = useState(false); // Estado para el switch de Agendar Turnos
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedColor, setSelectedColor] = useState("#ffffff"); // Color predeterminado
   const [secondColor, setSecondColor] = useState("#ffffff");
   const [profileImage, setProfileImage] = useState(null);
+  const [selectedImages, setSelectedImages] = useState([]);
+  const [selectedImageForMobile, setSelectedImageForMobile] = useState(null); // Imagen mostrada en el móvil
 
-  const toggleSwitch = () => {
-    setIsActive(!isActive);
+  const handleImageClick = (image) => {
+    setSelectedImageForMobile(image); // Actualizamos la imagen mostrada en el móvil
   };
 
-  const handleSwitchChange = (event) => {
-    setIsButtonVisible(event.target.checked);
+  const handleImageUpload = (e) => {
+    const files = Array.from(e.target.files);
+    const images = files.map((file) => URL.createObjectURL(file));
+    setSelectedImages((prevImages) => [...prevImages, ...images]);
+  };
+
+  const handleSwitchChange = () => {
+    setIsActive(!isActive);
   };
 
   useEffect(() => {
@@ -79,6 +87,21 @@ const EditPage = () => {
               gap: "10px", // Espacio entre los botones
             }}
           >
+             {/* Imagen seleccionada */}
+          {selectedImageForMobile && (
+            <img
+              src={selectedImageForMobile}
+              alt="Imagen seleccionada"
+              style={{
+                width: "80%",
+                height: "30%",
+                borderRadius: "10px",
+                objectFit: "cover",
+                position: "absolute",
+                top: "60%",
+              }}
+            />
+          )}
             {/* Imagen de perfil dentro de la silueta */}
             {profileImage && (
               <img
@@ -96,26 +119,30 @@ const EditPage = () => {
                 }}
               />
             )}
-            <button
-              style={{
-                width: "80%",
-                padding: "10px",
-                borderRadius: "5%",
-                border: "none",
-              }}
-            >
-              Botón 1
-            </button>
-            <button
-              style={{
-                width: "80%",
-                padding: "10px",
-                borderRadius: "5%",
-                border: "none",
-              }}
-            >
-              Botón 2
-            </button>
+            {isActive && (
+              <button
+                style={{
+                  width: "80%",
+                  padding: "10px",
+                  borderRadius: "5%",
+                  border: "none",
+                }}
+              >
+                Servicios
+              </button>
+            )}
+            {isScheduleActive && (
+              <button
+                style={{
+                  width: "80%",
+                  padding: "10px",
+                  borderRadius: "5%",
+                  border: "none",
+                }}
+              >
+                Agendar Turnos
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -132,58 +159,204 @@ const EditPage = () => {
         }}
       >
         {/* Perilla (interruptor) */}
-        <div style={containerStyle}>
-          <label style={{ marginBottom: "10px" }}>Activar opción:</label>
+        <div
+          style={{
+            flex: 1,
+            backgroundColor: "#ffffff",
+            borderRadius: "10px",
+            boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
+            padding: "10px",
+            display: "flex", // Usamos flex para alinear en línea
+            flexDirection: "column", // Organiza los elementos en columnas
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <label htmlFor="buttonSwitch" style={{ marginRight: "10px" }}>
+              Servicios
+            </label>
+            <div
+              style={{
+                position: "relative",
+                display: "inline-block",
+                width: "45px",
+                height: "24px",
+              }}
+            >
+              <input
+                type="checkbox"
+                id="buttonSwitch"
+                checked={isActive}
+                onChange={handleSwitchChange}
+                style={{
+                  opacity: 0, // Dejamos el checkbox oculto pero funcional
+                  width: "50px", // Mantenemos el tamaño del input
+                  height: "24px",
+                  position: "absolute",
+                  top: "0",
+                  left: "0",
+                  zIndex: 1, // Aseguramos que el input sea interactivo
+                }}
+              />
+              <span
+                style={{
+                  position: "absolute",
+                  cursor: "pointer",
+                  top: "0",
+                  left: "0",
+                  right: "0",
+                  bottom: "0",
+                  backgroundColor: isActive ? "#4CAF50" : "#ccc", // Color verde si está activado
+                  borderRadius: "24px",
+                  transition: "0.4s",
+                  zIndex: 0,
+                }}
+              ></span>
+
+              <span
+                style={{
+                  position: "absolute",
+                  content: "",
+                  height: "16px",
+                  width: "16px",
+                  borderRadius: "50%",
+                  left: isActive ? "26px" : "4px", // Movimiento de la bolita
+                  bottom: "4px",
+                  backgroundColor: "#fff",
+                  transition: "0.4s",
+                }}
+              ></span>
+            </div>
+          </div>
+          <div style={{ marginTop: "8px" }}>
+            <span>Añade imagenes para tus servicios o menu digital</span>
+          </div>
+          {/* Contenedor de miniaturas */}
           <div
             style={{
-              position: "relative",
-              display: "inline-block",
-              width: "50px",
-              height: "24px",
+              marginTop: "10px",
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap", // Permite que las miniaturas bajen a otra línea si es necesario
             }}
           >
-            <input
-              type="checkbox"
-              checked={isActive}
-              onChange={toggleSwitch}
+            {/* Miniatura con "+" para añadir */}
+            <label
+              htmlFor="fileUpload"
               style={{
-                opacity: 0,
-                width: "0",
-                height: "0",
-                position: "absolute",
-              }}
-            />
-            <span
-              style={{
-                position: "absolute",
+                width: "50px",
+                height: "50px",
+                borderRadius: "5px",
+                backgroundColor: "#f0f0f0",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                fontSize: "24px",
+                fontWeight: "bold",
                 cursor: "pointer",
-                top: "0",
-                left: "0",
-                right: "0",
-                bottom: "0",
-                backgroundColor: isActive ? "#4CAF50" : "#ccc", // Color verde si está activado
-                borderRadius: "24px",
-                transition: "0.4s",
+                marginRight: "10px",
+                border: "1px dashed #ccc",
               }}
-            ></span>
-            <span
-              style={{
-                position: "absolute",
-                content: "",
-                height: "16px",
-                width: "16px",
-                borderRadius: "50%",
-                left: isActive ? "26px" : "4px", // Movimiento de la bolita
-                bottom: "4px",
-                backgroundColor: "#fff",
-                transition: "0.4s",
-              }}
-            ></span>
+            >
+              +
+            </label>
+            <input
+              type="file"
+              id="fileUpload"
+              accept="image/*"
+              style={{ display: "none" }}
+              multiple // Permite seleccionar varias imágenes
+              onChange={handleImageUpload}
+            />
+
+            {/* Renderizado dinámico de miniaturas */}
+            {selectedImages.map((image, index) => (
+              <div
+                key={index}
+                onClick={() => handleImageClick(image)} // Manejar clic para reflejar en el móvil
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  borderRadius: "5px",
+                  backgroundImage: `url(${image})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  marginRight: "10px",
+                  cursor: "pointer",
+                  border: selectedImageForMobile === image ? "2px solid blue" : "none", // Resaltar imagen seleccionada
+                }}
+              ></div>
+            ))}
           </div>
         </div>
-
         {/* Contenedores vacíos */}
-        <div style={containerStyle}></div>
+        <div
+          style={{
+            flex: 1,
+            backgroundColor: "#ffffff",
+            borderRadius: "10px",
+            boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
+            padding: "10px",
+            display: "flex", // Usamos flex para alinear en línea
+            alignItems: "center",
+          }}
+        >
+          <div>
+            <label htmlFor="scheduleSwitch">Agendar turnos</label>
+            <div
+              style={{
+                position: "relative",
+                display: "inline-block",
+                width: "45px",
+                height: "24px",
+                marginLeft: "5px",
+              }}
+            >
+              <input
+                type="checkbox"
+                id="scheduleSwitch"
+                checked={isScheduleActive}
+                onChange={() => setIsScheduleActive(!isScheduleActive)}
+                style={{
+                  opacity: 0, // Dejamos el checkbox oculto pero funcional
+                  width: "50px", // Mantenemos el tamaño del input
+                  height: "24px",
+                  position: "absolute",
+                  top: "0",
+                  left: "0",
+                  zIndex: 1, // Aseguramos que el input sea interactivo
+                }}
+              />
+              <span
+                style={{
+                  position: "absolute",
+                  cursor: "pointer",
+                  top: "0",
+                  left: "0",
+                  right: "0",
+                  bottom: "0",
+                  backgroundColor: isScheduleActive ? "#4CAF50" : "#ccc", // Color verde si está activado
+                  borderRadius: "24px",
+                  transition: "0.4s",
+                  zIndex: 0,
+                }}
+              ></span>
+
+              <span
+                style={{
+                  position: "absolute",
+                  content: "",
+                  height: "16px",
+                  width: "16px",
+                  borderRadius: "50%",
+                  left: isScheduleActive ? "26px" : "4px", // Movimiento de la bolita
+                  bottom: "4px",
+                  backgroundColor: "#fff",
+                  transition: "0.4s",
+                }}
+              ></span>
+            </div>
+          </div>
+        </div>
         <div style={containerStyle}></div>
         <div style={containerStyle}></div>
         <div style={containerStyle}></div>
