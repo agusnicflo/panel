@@ -8,6 +8,7 @@ import Revenue from "./pages/Revenue";
 import Apariencia from "./pages/Apariencia";
 import Home from "./components/Home";
 import EditPage from './pages/EditPage';
+import "./styles/global.css";
 
 function App() {
   return (

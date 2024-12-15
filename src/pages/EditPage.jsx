@@ -41,17 +41,17 @@ const EditPage = () => {
 
   // Obtiene el ícono correspondiente según la URL
   const getIcon = (url) => {
-    if (url.includes("facebook.com"))
+    if (url.includes("facebook"))
       return <FaFacebook style={{ width: "50%", height: "50%" }} />;
-    if (url.includes("instagram.com"))
+    if (url.includes("instagram"))
       return <FaInstagram style={{ width: "50%", height: "50%" }} />;
-    if (url.includes("telegram.me") || url.includes("t.me"))
+    if (url.includes("telegram") || url.includes("t.me"))
       return <FaTelegramPlane style={{ width: "50%", height: "50%" }} />;
-    if (url.includes("whatsapp.com"))
+    if (url.includes("whatsapp"))
       return <FaWhatsapp style={{ width: "50%", height: "50%" }} />;
-    if (url.includes("twitter.com") || url.includes("x.com"))
+    if (url.includes("twitter") || url.includes("x.com"))
       return <RiTwitterXLine style={{ width: "50%", height: "50%" }} />;
-    if (url.includes("myspace.com"))
+    if (url.includes("myspace"))
       return <SiMyspace style={{ width: "50%", height: "50%" }} />;
     return null; // Si no coincide con ninguna red social conocida
   };
@@ -495,7 +495,7 @@ const EditPage = () => {
                 flexDirection: "column",
                 backgroundColor: "#dddfdb",
                 borderRadius: "10px",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)", // Sombra hacia abajo
+                boxShadow: "0 4px 2px rgba(0, 0, 0, 0.2)", // Sombra hacia abajo
               }}
             >
               <label
@@ -589,7 +589,7 @@ const EditPage = () => {
                 flexDirection: "column",
                 backgroundColor: "#dddfdb",
                 borderRadius: "10px",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)", // Sombra hacia abajo
+                boxShadow: "0 4px 2px rgba(0, 0, 0, 0.2)", // Sombra hacia abajo
               }}
             >
               <label
@@ -661,7 +661,7 @@ const EditPage = () => {
                 flexDirection: "column",
                 backgroundColor: "#dddfdb",
                 borderRadius: "10px",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)", // Sombra hacia abajo
+                boxShadow: "0 4px 2px rgba(0, 0, 0, 0.2)", // Sombra hacia abajo
               }}
             >
               <label

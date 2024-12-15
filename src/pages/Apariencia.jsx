@@ -100,7 +100,7 @@ function Apariencia() {
                 accept="image/*"
                 onChange={handleImageChange}
               />
-              <button onClick={handleImageDelete} className="delete-button">
+              <button onClick={handleImageDelete} className="delete-button" style={{backgroundColor:"#e6e4f1", color:"#6281fe"}}>
                 Eliminar imagen
               </button>
             </div>
