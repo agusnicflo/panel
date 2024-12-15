@@ -7,23 +7,39 @@
   height: 100vh;
   padding: 20px;
   box-sizing: border-box;
+  color: gray;
 }
 
 /* Selector de fechas */
 .date-picker {
+    display: flex;
+    text-align: center;
+    justify-content: center;
   margin-bottom: 20px;
+
+  cursor: pointer;
 }
 
 .date-input {
+    display: flex;
+    text-align: center;
+    justify-content: center;
   padding: 10px;
   font-size: 16px;
   border: none;
   border-radius: 5px;
   width: 200px;
+  color: rgba(128, 128, 128, 0.726);
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.react-datepicker__input-container {
-  margin-left: 50px;
+.btnarrow{
+ border: 1px solid rgba(128, 128, 128, 0.199);
+ border-radius: 5px;
+ background-color: white;
+ width: 40px;
+ color: gray;
 }
 
 /* Calendario */
@@ -32,9 +48,10 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
-  border: 1px solid #ccc;
+  border: 1px solid #e0dfdfb6;
   border-radius: 5px;
   overflow: hidden;
+  border-radius: 15px;
 }
 
 /* Cabecera */
@@ -42,15 +59,19 @@
   display: grid;
   grid-template-columns: 100px repeat(7, 1fr);
   background-color: #f5f5f5;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #cccccc60;
 }
 
 .header-cell {
-  padding: 10px;
+  padding: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 30px;
   text-align: center;
   font-weight: bold;
   border-right: 1px solid #ccc;
-  background-color: #f0f8ff;
+  background-color: #ffffff;
+  font-size: 13px;
 }
 
 .empty-cell {
@@ -80,15 +101,27 @@
   font-size: 14px;
   font-weight: bold;
   background-color: #f5f5f5;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #cccccc4f;
 }
 
 .cell {
-  border: 1px solid #ddd;
+  border: 0.1px solid #dddddd7c;
   background-color: #fff;
   cursor: pointer;
+  
 }
 
 .cell:hover {
   background-color: #f0f0f0;
+}
+
+.btnpagos{
+    margin-right: 10px;
+    border-radius: 5px;
+    padding: 9px 22px;
+    border: none;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    color: gray;
+    font-weight: bold;
 }

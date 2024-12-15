@@ -44,7 +44,21 @@ function Orders() {
         <span className="switch-label">Switch 3</span>
       </div>
       <label htmlFor="">Ingrese su contraseña para confirmar el cambio</label>
-      <div style={{display:"flex", flexDirection:"column"}}> <label htmlFor="">Contraseña</label><input type="text" style={{width:"50%", height:"23px", border:"gray solid 1px", borderRadius:"5px", marginTop:"5px"}} /></div>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        {" "}
+        <label htmlFor="">Contraseña</label>
+        <input
+          type="text"
+          style={{
+            width: "50%",
+            height: "23px",
+            border: "gray solid 1px",
+            borderRadius: "5px",
+            marginTop: "5px",
+          }}
+        />
+      </div>
+      <button>asdasdad</button>
     </div>
   );
 }

@@ -1,8 +1,8 @@
 function Payment() {
     return (
       <div>
-        <h2>Métodos de pago</h2>
-        <p>Aquí podrás configurar los métodos de pago disponibles.</p>
+        <h2>Envio de pedidos</h2>
+        <p>Habilitado para esta plantilla</p>
         {/* Agrega aquí los componentes relacionados con los métodos de pago */}
       </div>
     );
