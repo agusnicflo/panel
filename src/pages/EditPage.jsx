@@ -925,12 +925,6 @@ const EditPage = () => {
   );
 };
 
-const containerStyle = {
-  flex: 1,
-  backgroundColor: "#ffffff",
-  borderRadius: "10px",
-  boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
-  padding: "10px",
-};
+
 
 export default EditPage;
