@@ -1,6 +1,5 @@
 import React, { useState } from "react"; // Agrega useState
 import "../styles/Home.css";
-import { Link } from "react-router-dom"; // Para navegar a otras pantallas
 import { useNavigate } from "react-router-dom";
 
 function Home() {
