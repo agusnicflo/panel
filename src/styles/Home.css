@@ -1,86 +1,96 @@
 /* Contenedor principal */
 .home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  /* Título */
-  .title {
-    font-size: 28px;
-    margin-bottom: 40px;
-  }
-  
-  /* Contenedor de los botones */
-  .buttons-container {
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-    margin-bottom: 30px;
-  }
-  
-  /* Estilos de cada botón con su texto */
-  .button-with-text {
-    display: flex;
-    flex-direction: column;  /* Coloca la imagen y el texto verticalmente */
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #2d2f3160;
-    border-radius: 15px;
-    padding: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    height: 300px;
-    width: 200px;
-  }
-  
-  .button-with-text:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Estilos de las imágenes */
-  .button-image {
-    width: 100px; /* Ajusta el tamaño de la imagen */
-    height: 100px;
-    object-fit: contain; /* Asegura que la imagen no se distorsione */
-    margin-bottom: 10px;
-  }
-  
-  /* Estilo del texto debajo de la imagen */
-  .button-text {
-    font-size: 16px;
-    color: #000000;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
 
-  .buttons-container a {
-    text-decoration: none; /* Elimina el subrayado */
-  }
-  
-  /* Estilos del botón "Aceptar" */
-  .divbtn {
-    margin-top: 50px;
-  }
-  
-  .btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #2196F3;
-    color: white;
-    border: none;
-    border-radius: 7px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    width: 400px;
-  }
-  
-  .btn:hover {
-    background-color: #1976D2;
-    transform: translateY(-3px);
-  }
+/* Título */
+.title {
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+/* Contenedor de los botones */
+.buttons-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* Estilos de cada botón con su texto */
+.button-with-text {
+  display: flex;
+  flex-direction: column; /* Coloca la imagen y el texto verticalmente */
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #2d2f3160;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  height: 300px;
+  width: 200px;
+}
+
+.button-with-text:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  background-color: #007bff; /* Color de fondo al pasar el cursor */
+}
+
+.button-with-text.selected {
+  background-color: #0056b3; /* Fondo azul fijo cuando se selecciona */
+}
+
+/* Estilos de las imágenes */
+.button-image {
+  width: 100px; /* Ajusta el tamaño de la imagen */
+  height: 100px;
+  object-fit: contain; /* Asegura que la imagen no se distorsione */
+  margin-bottom: 10px;
+}
+
+/* Estilo del texto debajo de la imagen */
+.button-text {
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Estilo adicional si deseas más enfoque en el botón */
+.button-with-text.selected .button-text {
+  font-weight: bold;
+}
+
+.buttons-container a {
+  text-decoration: none; /* Elimina el subrayado */
+}
+
+/* Estilos del botón "Aceptar" */
+.divbtn {
+  margin-top: 50px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 400px;
+}
+
+.btn:hover {
+  background-color: #1976d2;
+  transform: translateY(-3px);
+}
