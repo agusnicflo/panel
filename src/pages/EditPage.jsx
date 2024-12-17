@@ -25,6 +25,13 @@ const EditPage = () => {
   const [socialLinks, setSocialLinks] = useState([]); // Estado para las redes sociales
   const [inputValue, setInputValue] = useState(""); // Estado para el valor del input
 
+
+  function ejemploDeCambio() {
+    let mensaje = "Esto es un cambio de prueba para CodeRabbit";
+    console.log(mensaje);
+}
+
+ejemploDeCambio();
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && isSocialActive) {
       handleAddSocialLink(); // Llama a la función al presionar Enter
