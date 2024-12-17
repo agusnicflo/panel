@@ -105,19 +105,6 @@ const EditPage = () => {
           borderRight: "1px solid #ddd",
         }}
       >
-        <div
-          style={{
-            width: "300px",
-            height: "600px",
-            backgroundImage: `linear-gradient(to bottom, ${selectedColor}, ${secondColor})`, // Degradado con dos colores
-            borderRadius: "40px",
-            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            position: "relative",
-          }}
-        >
           <div
             style={{
               width: "300px",
@@ -268,7 +255,6 @@ const EditPage = () => {
             )}
           </div>
         </div>
-      </div>
 
       {/* Panel lateral */}
       <div
