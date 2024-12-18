@@ -1,0 +1,397 @@
+.div1 {
+  display: flex;
+  height: 100vh;
+}
+
+.div2 {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-right: 1px solid #ddd;
+}
+
+.fondo {
+  width: 300px;
+  height: 600px;
+  border-radius: 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.imgselec {
+  width: 85%;
+  height: 30%;
+  border-radius: 10px;
+  object-fit: cover;
+  position: absolute;
+  margin-top: 59%;
+}
+
+.imgcontainerEP {
+  position: absolute;
+  bottom: 10px;
+  width: 85%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.imglist {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.social {
+  width: 40px;
+  height: 40px;
+  background-color: #f8f9f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.imgprf {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title {
+  align-items: center;
+  font-size: 11px;
+  color: white;
+  font-weight: bold;
+}
+
+.btnservicios {
+  width: 80%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-top: -12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+}
+
+.btnagendar {
+  width: 80%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+}
+
+.container {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: #dddfdb;
+  border-radius: 10px;
+  box-shadow: 0 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+.inner-container {
+  display: flex;
+  align-items: center;
+}
+
+.section {
+  margin: 5px;
+}
+
+.label-small {
+  margin: 0 5px;
+  font-size: 14px;
+}
+
+.select-box {
+  margin-bottom: 10px;
+  margin-left: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+/*PANEL LATERAL*/
+
+.div1PL {
+  width: 60%;
+  padding: 20px;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 20%;
+}
+
+.div2PL {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.div3PL {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 24px;
+}
+
+.btnswitch {
+  opacity: 0;
+  width: 50px;
+  height: 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-Index: 1
+}
+
+.btnverde {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 24px;
+  transition: 0.4s;
+  z-index: 0;
+}
+
+.bolita {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  bottom: 4px;
+  background-color: #fff;
+  transition: 0.4s;
+}
+
+.mincontainer {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.minmas {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 10px;
+  border: 1px dashed #ccc;
+}
+
+.imgmas {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background-size: cover;
+  background-position: center;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* Contenedor principal */
+.schedule-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Contenedor del switch */
+.switch-container {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 24px;
+  margin-left: 5px;
+}
+
+/* Estilo del input (checkbox oculto) */
+.switch-input {
+  opacity: 0;
+  width: 50px;
+  height: 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Estilo del fondo del switch (verde o gris) */
+.switch-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 24px;
+  transition: 0.4s;
+  z-index: 0;
+}
+
+/* Estilo de la bolita del switch */
+.switch-circle {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  bottom: 4px;
+  background-color: #fff;
+  transition: 0.4s;
+}
+
+.social-container {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contenedor de la sección de switch */
+.switch-section {
+  display: flex;
+  align-items: center;
+}
+
+/* Contenedor del switch */
+.switch-container {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 24px;
+}
+
+/* Estilo del input (checkbox oculto) */
+.switch-input {
+  opacity: 0;
+  width: 50px;
+  height: 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Estilo del fondo del switch (verde o gris) */
+.switch-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 24px;
+  transition: 0.4s;
+  z-index: 0;
+}
+
+/* Estilo de la bolita del switch */
+.switch-circle {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  bottom: 4px;
+  background-color: #fff;
+  transition: 0.4s;
+}
+
+/* Estilo de los inputs y botones */
+.input-container {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.input-container input {
+  margin-right: 4px;
+  width: 83%;
+  height: 27px;
+  border: none;
+  background-color: #dddfdb;
+  border-radius: 5px;
+}
+
+.input-container button {
+  width: 13%;
+  height: 30px;
+  border: none;
+  background-color: #dddfdb;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+/* Línea divisoria */
+.divider {
+  border: 1px solid #000;
+  width: 100%;
+  margin-bottom: -2px;
+  margin-top: 15px;
+}
+
+/* Estilo del texto */
+.social-text {
+  margin-top: -10px;
+}
+
+/* Contenedor de íconos de redes sociales */
+.social-icons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+
+.social-icon {
+  width: 50px;
+  height: 50px;
+  background-color: #f8f9f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icon i {
+  width: 50%;
+  height: 50%;
+}
