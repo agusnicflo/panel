@@ -31,7 +31,7 @@
   border-radius: 10px;
   object-fit: cover;
   position: absolute;
-  margin-top: 59%;
+  margin-top: 95%;
 }
 
 .imgcontainerEP {
@@ -53,14 +53,15 @@
 }
 
 .social {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   background-color: #f8f9f7;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 6px;
 }
 
 .imgprf {
@@ -69,16 +70,18 @@
   border-radius: 50%;
   object-fit: cover;
   position: absolute;
-  top: 12%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
+  margin-bottom: 10px;
 }
 
-.title {
+.title2 {
   align-items: center;
   font-size: 11px;
   color: white;
   font-weight: bold;
+  margin-bottom: 70%;
 }
 
 .btnservicios {
@@ -86,7 +89,7 @@
   padding: 10px;
   border-radius: 10px;
   border: none;
-  margin-top: -12px;
+  margin-top: -50px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   font-weight: bold;
 }
@@ -108,12 +111,25 @@
   background-color: #dddfdb;
   border-radius: 10px;
   box-shadow: 0 4px 2px rgba(0, 0, 0, 0.2);
+  height: 200px;
+  width: 300px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Asegúrate de incluir bordes y padding dentro del tamaño total */
+  display: block;
+  width: 100%; /* O el ancho que desees */
+  margin-bottom: 10px;
 }
-
 
 .inner-container {
   display: flex;
   align-items: center;
+}
+
+.wtfdiv{
+    display: flex;
+    flex-direction: column;
 }
 
 .section {
@@ -130,6 +146,22 @@
   margin-left: 5px;
   border-radius: 5px;
   border: none;
+}
+.container2 {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: #dddfdb;
+  border-radius: 10px;
+  box-shadow: 0 4px 2px rgba(0, 0, 0, 0.2);
+  height: 200px;
+  width: 300px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Asegúrate de incluir bordes y padding dentro del tamaño total */
+  display: block;
+  width: 100%; /* O el ancho que desees */
 }
 
 /*PANEL LATERAL*/
@@ -154,6 +186,16 @@
   flex-direction: column;
 }
 
+.agenda {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
 .div3PL {
   position: relative;
   display: inline-block;
@@ -168,7 +210,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-Index: 1
+  z-index: 1;
 }
 
 .btnverde {
@@ -197,8 +239,9 @@
 .mincontainer {
   margin-top: 10px;
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
+  flex-direction: column;
+  
 }
 
 .minmas {
@@ -284,6 +327,7 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
 }
 
 /* Contenedor de la sección de switch */
@@ -370,7 +414,7 @@
 
 /* Estilo del texto */
 .social-text {
-  margin-top: -10px;
+  margin-top: 10px;
 }
 
 /* Contenedor de íconos de redes sociales */

@@ -26,6 +26,7 @@ function App() {
           <Route path="revenue" element={<Revenue />} />
         </Route>
         <Route path="/edit" element={<EditPage />} />
+        
       </Routes>
     </Router>
   );

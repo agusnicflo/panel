@@ -1,0 +1,296 @@
+/* Archivo: Carousel.css */
+.carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.carousel-container {
+  width: 90%;
+  height: 600px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent; /* Asegura que el fondo del slide sea transparente */
+}
+
+.slide-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.left-box,
+.right-box {
+  width: 150px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border-radius: 10px;
+  display: inline-block; /* Se ajusta al contenido */
+  padding: 10px; /* Opcional, agrega espacio interno */
+  border: 1px solid #ccc; /* Opcional, para visualizar el contenedor */
+}
+
+.left-box {
+  margin-right: 20px;
+}
+
+.right-box {
+  margin-left: 20px;
+}
+
+.iphone-silhouette {
+  width: 300px;
+  height: 580px;
+  border: 2px solid black;
+  border-radius: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen {
+  width: 180px;
+  height: 350px;
+  background: white;
+  border-radius: 20px;
+  margin: 10px auto;
+}
+
+.home-button {
+  width: 40px;
+  height: 40px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 15px;
+}
+
+button.prev,
+button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #333;
+  color: white;
+  border: none;
+  padding: 15px 7px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 10px;
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}
+
+button:hover {
+  background: #555;
+}
+
+/* Contenedor de los switches */
+.left-box {
+  display: flex;
+  flex-direction: column; /* Alinear en columna */
+  gap: 1rem; /* Espaciado entre contenedores */
+  width: 210px;
+}
+
+/* Contenedor individual de cada switch */
+.switch-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 240px;
+  height: 300px;
+  background-color: gray;
+  border-radius: 10px;
+  margin-right: 55px;
+}
+
+/* Estilo del switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.switch input {
+  opacity: 0; /* Ocultar el checkbox */
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 25px; /* Bordes redondeados */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%; /* Bolita redondeada */
+}
+
+input:checked + .slider {
+  background-color: #2196f3; /* Color al activar */
+}
+
+input:checked + .slider:before {
+  transform: translateX(25px); /* Mover la bolita a la derecha */
+}
+
+/* Contenedor principal */
+.image-uploader-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%; /* Se ajusta al ancho del padre */
+  max-width: 600px; /* Máximo ancho del contenedor */
+  margin: auto;
+}
+
+/* Botón para agregar imágenes */
+.add-image-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  margin-left: 10px;
+}
+
+.image-input {
+  display: none;
+}
+
+/* Contenedor de imágenes */
+.image-gallery {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* Hace que las imágenes se envuelvan */
+  height: 40px;
+  gap: 10px;
+  max-width: 100%; /* Limita el ancho del contenedor */
+  box-sizing: border-box;
+}
+
+/* Estilo de miniaturas */
+.image-thumbnail {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.imgcontainer {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las imágenes se ajusten a la siguiente fila cuando el contenedor esté lleno */
+  gap: 10px; /* Espacio entre las imágenes */
+}
+
+.horascontainer {
+  display: flex;
+  height: 40px;
+  overflow: hidden;
+}
+
+.inputs-container {
+  display: flex;
+  flex-direction: column; /* Cambia a row si los quieres en fila */
+}
+
+.image-fit-selector {
+  margin-top: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 130px;
+  height: 25px;
+  font-size: 10px;
+}
+
+.icnadd {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 40px;
+  height: 35px;
+}
+
+.inputurl {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  flex: 1;
+  width: 140px;
+}
+
+.days {
+  padding: 4px;
+  margin-top: 4px;
+  height: 20px;
+  font-size: 10px;
+  width: 50%;
+}
+
+.openDays{
+    padding: 4px;
+    margin-Top: 4px;
+    height: 20px;
+    font-Size: 10px;
+    width: 50%
+}

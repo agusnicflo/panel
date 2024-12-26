@@ -1,0 +1,97 @@
+.silhouette3 {
+  position: absolute;
+  width: 100%; /* Ajusta al tamaño del contenedor padre */
+  display: flex;
+  justify-content: center; /* Centra la calendar en la silueta */
+  top: 30px;
+  border: none;
+  flex-direction: column;
+}
+
+.calendar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Acomoda los elementos con espacio uniforme */
+  align-items: center;
+  width: 100%;
+  border: none;
+  margin-left: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.calendar-day {
+  display: flex;
+  flex-direction: column; /* Coloca el día y el número en columna */
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  text-align: center;
+  flex-grow: 1; /* Hace que todos los cuadraditos crezcan uniformemente */
+  max-width: 11%; /* Garantiza que quepan 7 cuadraditos en una fila */
+  aspect-ratio: 1; /* Asegura que cada cuadradito sea perfectamente cuadrado */
+  margin: 0 4px; /* Espaciado horizontal entre los cuadraditos */
+  box-sizing: border-box; /* Asegura que el borde no afecte el tamaño total */
+  height: 50px;
+  cursor: pointer;
+}
+
+.day {
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.date {
+  font-size: 11px;
+}
+
+.divscontainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  display: flex; /* Coloca los divs uno al lado del otro */
+}
+
+.columnturnos2 {
+  margin-bottom: 80px;
+  height: 100%;
+  width: 80%;
+  display: flex; /* Coloca los divs uno al lado del otro */
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.columnturnos1 {
+  margin-top: 50px;
+  height: 400px;
+  width: 30%;
+  display: flex; /* Coloca los divs uno al lado del otro */
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.columnturnos1 {
+  display: flex;
+  flex-direction: column; /* Coloca los elementos uno debajo del otro */
+  align-items: center; /* Centra horizontalmente los elementos */
+  gap: 5px; /* Espacio opcional entre los elementos */
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.vertical-line {
+  width: 2px; /* Grosor de la línea */
+  height: 50px; /* Longitud de la línea */
+  background-color: white; /* Color de la línea */
+}
+
+.btnagenda {
+  margin-top: 45px;
+  border-radius: 5px;
+  height: 30px;
+  width: 170px;
+  cursor: pointer;
+}
