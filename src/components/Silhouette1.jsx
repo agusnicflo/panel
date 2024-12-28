@@ -25,11 +25,11 @@ const Silhouette1 = ({
 
 
 
-  const addSocialIcon = (url) => {
+  /*const addSocialIcon = (url) => {
     if (url) {
       setSocialIcons((prevIcons) => [...prevIcons, url]);
     }
-  };
+  };*/
 
 
 

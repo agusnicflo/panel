@@ -26,12 +26,12 @@ const EditPage = ({ openHour: initialOpenHour, closeHour: initialCloseHour }) =>
   const [openHour, setOpenHour] = useState(initialOpenHour || "08:00");  // Estado local para openHour
   const [closeHour, setCloseHour] = useState(initialCloseHour || "18:00");  // Estado local para closeHour
   const [openDays, setOpenDays] = useState([]); // Días seleccionados
-  const [profileImage, setProfileImage] = useState(null);
-  const [showButton, setShowButton] = useState(false);
-  const [showButton2, setShowButton2] = useState(false);
-  const [containers, setContainers] = useState([]);
-  const [selectedDay, setSelectedDay] = useState(null);
-  const [selectedTime, setSelectedTime] = useState(null);
+  const [profileImage, /*setProfileImage*/] = useState(null);
+  const [showButton, /*setShowButton*/] = useState(false);
+  const [showButton2, /*setShowButton2*/] = useState(false);
+  const [containers, /*setContainers*/] = useState([]);
+  const [selectedDay, /*setSelectedDay*/] = useState(null);
+  const [selectedTime, /*setSelectedTime*/] = useState(null);
   const [selectedServiceImage, setSelectedServiceImage] = useState(null);
   const navigate = useNavigate();
 
