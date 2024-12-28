@@ -12,48 +12,139 @@ const Silhouette1 = ({
   openDays,
   closeHour,
   updateFinalData,
+  isAdmin, // Nueva propiedad para determinar si es admin o no
 }) => {
   const [profileImage, setProfileImage] = useState(null);
-  const [socialIcons, setSocialIcons] = useState([]); // Lista de iconos de redes sociales
+  const [socialIcons, setSocialIcons] = useState([]);
+
+  const [openHourState, setOpenHourState] = useState(openHour);
+  const [closeHourState, setCloseHourState] = useState(closeHour);
+  const [openDaysState, setOpenDaysState] = useState(openDays);
+  const [showButtonState, setShowButtonState] = useState(showButton);
+  const [showButton2State, setShowButton2State] = useState(showButton2);
+
+
 
   const addSocialIcon = (url) => {
     if (url) {
-      setSocialIcons((prevIcons) => [...prevIcons, url]); // Añade la URL a la lista
+      setSocialIcons((prevIcons) => [...prevIcons, url]);
     }
   };
+
+
 
   useEffect(() => {
     const storedProfileImage = localStorage.getItem("profileImage");
     if (storedProfileImage) {
-      setProfileImage(storedProfileImage); // Carga la imagen desde localStorage
+      setProfileImage(storedProfileImage);
+    }
+
+    const storedSocialIcons = JSON.parse(localStorage.getItem("socialIcons"));
+    if (storedSocialIcons) {
+      setSocialIcons(storedSocialIcons);
+    }
+
+    const storedOpenHour = localStorage.getItem("openHour");
+    const storedCloseHour = localStorage.getItem("closeHour");
+    const storedOpenDays = JSON.parse(localStorage.getItem("openDays"));
+    if (storedOpenHour && storedCloseHour && storedOpenDays) {
+      setOpenHourState(storedOpenHour);
+      setCloseHourState(storedCloseHour);
+      setOpenDaysState(storedOpenDays);
+    }
+
+    const storedShowButton = localStorage.getItem("showButton");
+    const storedShowButton2 = localStorage.getItem("showButton2");
+    if (storedShowButton !== null) {
+      setShowButtonState(storedShowButton === "true");
+    }
+    if (storedShowButton2 !== null) {
+      setShowButton2State(storedShowButton2 === "true");
     }
   }, []);
 
-  // Actualizar los datos finales
+  useEffect(() => {
+    if (profileImage) {
+      localStorage.setItem("profileImage", profileImage);
+    }
+    if (socialIcons.length > 0) {
+      localStorage.setItem("socialIcons", JSON.stringify(socialIcons));
+    }
+    if (openHourState && closeHourState && openDaysState) {
+      localStorage.setItem("openHour", openHourState);
+      localStorage.setItem("closeHour", closeHourState);
+      localStorage.setItem("openDays", JSON.stringify(openDaysState));
+    }
+    if (showButtonState !== undefined) {
+      localStorage.setItem("showButton", showButtonState);
+    }
+    if (showButton2State !== undefined) {
+      localStorage.setItem("showButton2", showButton2State);
+    }
+  }, [
+    profileImage,
+    socialIcons,
+    openHourState,
+    closeHourState,
+    openDaysState,
+    showButtonState,
+    showButton2State,
+  ]);
+
   useEffect(() => {
     updateFinalData({
       silhouette1: {
         profileImage,
         socialIcons,
-        openHour,
-        closeHour,
-        openDays,
+        openHour: openHourState,
+        closeHour: closeHourState,
+        openDays: openDaysState,
         buttons: {
-          showButton,
-          showButton2,
+          showButton: showButtonState,
+          showButton2: showButton2State,
         },
       },
     });
   }, [
     profileImage,
     socialIcons,
-    openHour,
-    closeHour,
-    openDays,
-    showButton,
-    showButton2,
+    openHourState,
+    closeHourState,
+    openDaysState,
+    showButtonState,
+    showButton2State,
     updateFinalData,
   ]);
+
+  useEffect(() => {
+    setOpenDaysState(openDays);
+  }, [openDays]);
+
+  useEffect(() => {
+    setOpenHourState(openHour);
+  }, [openHour]);
+  
+  useEffect(() => {
+    setCloseHourState(closeHour);
+  }, [closeHour]);
+
+  useEffect(() => {
+    setShowButtonState(showButton);
+    setShowButton2State(showButton2);
+  }, [showButton, showButton2]);
+
+  // Función para manejar el click de los botones, solo si no es admin
+  const handleButtonClick = (buttonType) => {
+    if (!isAdmin) {
+      if (buttonType === "servicios") {
+        // Redirigir a la página de servicios
+        window.location.href = "/servicios"; // O puedes usar React Router si lo tienes configurado
+      } else if (buttonType === "agendar") {
+        // Redirigir a la página de agendar turnos
+        window.location.href = "/agendar-turnos"; // O puedes usar React Router si lo tienes configurado
+      }
+    }
+  };
   return (
     <div style={{ marginTop: "25%" }}>
       {profileImage && (
@@ -86,18 +177,24 @@ const Silhouette1 = ({
         <p style={{ fontWeight: "bold", fontSize: "11px" }}>
           Horario de Apertura:
         </p>
-        <p style={{ fontSize: "11px" }}>Abierto desde las {openHour}</p>{" "}
-        <p style={{ fontSize: "11px" }}>hasta las {closeHour}</p>
+        <p style={{ fontSize: "11px" }}>Abierto desde las {openHourState}</p>{" "}
+        <p style={{ fontSize: "11px" }}>hasta las {closeHourState}</p>
         <p style={{ fontWeight: "bold", fontSize: "11px" }}>
           <strong>Días de apertura:</strong>{" "}
-          {openDays.length > 0 ? openDays.join(" y ") : "No especificado"}
+          {openDaysState.length > 0
+            ? openDaysState.join(" y ")
+            : "No especificado"}
         </p>
       </div>
 
-      {/* Mostrar el botón si showButton es true */}
+      {/* Mostrar el botón si showButtonState es true */}
       <div>
-        {showButton && (
+        {showButtonState && (
           <button
+            onClick={() => {
+              if (!isAdmin) handleButtonClick("servicios");
+            }}
+            disabled={isAdmin} // Deshabilitar el botón si es admin
             style={{
               position: "absolute",
               top: "42%",
@@ -116,8 +213,11 @@ const Silhouette1 = ({
         )}
 
         {/* Botón del Switch 2 */}
-        {showButton2 && (
+        {showButton2State && (
           <button
+            onClick={() => {
+              if (!isAdmin) handleButtonClick("agendar");
+            }}
             style={{
               position: "absolute",
               top: "50%", // Botón más abajo que el anterior
@@ -154,7 +254,7 @@ const Silhouette1 = ({
             />
           </div>
         )}
-      </div>
+      </div> 
     </div>
   );
 };

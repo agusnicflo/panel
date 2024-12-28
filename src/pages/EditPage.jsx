@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/Carousel.css"; // Archivo CSS para estilos
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 // Importar los componentes de las siluetas
 import Silhouette1 from "../components/Silhouette1";
@@ -9,7 +10,7 @@ import Silhouette2 from "../components/Silhouette2";
 import Silhouette3 from "../components/Silhouette3";
 import Silhouette4 from "../components/Silhouette4";
 
-const EditPage = () => {
+const EditPage = ({ openHour: initialOpenHour, closeHour: initialCloseHour }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedColor, setSelectedColor] = useState("#ffffff"); // Color predeterminado
   const [secondColor, setSecondColor] = useState("#ffffff");
@@ -22,22 +23,94 @@ const EditPage = () => {
   const [selectedImage, setSelectedImage] = useState(null); // Imagen seleccionada para la silueta
   const [imageFit, setImageFit] = useState("cover"); // Valor inicial: "cover"
   const [timeInterval, setTimeInterval] = useState("30"); // Intervalo de tiempo: 20, 30, 60
-  const [openHour, setOpenHour] = useState(12); // Hora de apertura entre 0 y 24
-  const [closeHour, setCloseHour] = useState("22:00");
+  const [openHour, setOpenHour] = useState(initialOpenHour || "08:00");  // Estado local para openHour
+  const [closeHour, setCloseHour] = useState(initialCloseHour || "18:00");  // Estado local para closeHour
   const [openDays, setOpenDays] = useState([]); // Días seleccionados
+  const [profileImage, setProfileImage] = useState(null);
+  const [showButton, setShowButton] = useState(false);
+  const [showButton2, setShowButton2] = useState(false);
+  const [containers, setContainers] = useState([]);
+  const [selectedDay, setSelectedDay] = useState(null);
+  const [selectedTime, setSelectedTime] = useState(null);
+  const [selectedServiceImage, setSelectedServiceImage] = useState(null);
+  const navigate = useNavigate();
 
-  const updateFinalData = (updatedData) => {
+  const handleCreate = () => {
+    const finalData = {
+      silhouettes: [
+        // Aquí agrega los datos de cada silueta que se personalizaron
+        {
+          type: "Silhouette1",
+          data: {
+            /* datos */
+          },
+        },
+        {
+          type: "Silhouette2",
+          data: {
+            /* datos */
+          },
+        },
+        // ...
+      ],
+    };
+    localStorage.setItem("silhouettes", JSON.stringify(finalData));
+    navigate("/final");
+  };
+
+  const updateFinalData = (newData) => {
     setFinalData((prevData) => ({
       ...prevData,
-      ...updatedData,
+      ...newData,
     }));
   };
 
-  const handleCreate = () => {
-    console.log("Datos finales generados:", finalData);
-    localStorage.setItem("userData", JSON.stringify(finalData)); // Guarda en localStorage
-    alert("Interfaz creada con éxito!");
-  };
+  useEffect(() => {
+    updateFinalData({
+      silhouette1: {
+        profileImage,
+        socialIcons,
+        openHour,
+        closeHour,
+        openDays,
+        buttons: {
+          showButton,
+          showButton2,
+        },
+      },
+      silhouette2: {
+        profileImage,
+        containers: containers.map((container) => ({
+          image: container.image,
+          texts: container.texts,
+        })),
+      },
+      silhouette3: {
+        selectedDay,
+        selectedTime,
+        profileImage: "ruta/a/imagen-de-perfil.jpg", // Puedes reemplazar esto con los datos reales
+        openHours: [{ day: selectedDay?.day, open: selectedTime }],
+      },
+      silhouette4: {
+        name: document.getElementById("name")?.value,
+        phone: document.getElementById("phone")?.value,
+        card: document.getElementById("card")?.value,
+        serviceImage: selectedServiceImage,
+      },
+    });
+  }, [
+    profileImage,
+    socialIcons,
+    openHour,
+    closeHour,
+    openDays,
+    showButton,
+    showButton2,
+    containers,
+    selectedDay,
+    selectedTime,
+    selectedServiceImage,
+  ]);
 
   const [finalData, setFinalData] = useState({
     silhouette1: {},
@@ -86,7 +159,7 @@ const EditPage = () => {
 
   const silhouettes = [
     <Silhouette1
-    updateFinalData={updateFinalData}
+      updateFinalData={updateFinalData}
       showButton={isSwitch1Active}
       showButton2={isSwitch2Active}
       socialUrl={socialUrl}
@@ -97,10 +170,15 @@ const EditPage = () => {
       openHour={openHour} // Hora de apertura
       closeHour={closeHour}
       openDays={openDays} // Días seleccionados
+      isAdmin={true} // Cambia a false en la interfaz final
     />, // Primer componente de silueta
-    <Silhouette2 selectedImage={selectedImage} images={images} updateFinalData={updateFinalData}/>, // Segundo componente de silueta
-    <Silhouette3 updateFinalData={updateFinalData}/>, // Tercer componente de silueta
-    <Silhouette4 updateFinalData={updateFinalData}/>, // Cuarto componente de silueta
+    <Silhouette2
+      selectedImage={selectedImage}
+      images={images}
+      updateFinalData={updateFinalData}
+    />, // Segundo componente de silueta
+    <Silhouette3 updateFinalData={updateFinalData} />, // Tercer componente de silueta
+    <Silhouette4 updateFinalData={updateFinalData} />, // Cuarto componente de silueta
   ];
 
   // Lista de colores de fondo de las siluetas
@@ -259,11 +337,19 @@ const EditPage = () => {
                     {/* Input para la hora de apertura (0-24) */}
                     <div className="horascontainer">
                       <div>
-                        <label style={{fontSize:"12px"}}>Hora de apertura:</label>
+                        <label style={{ fontSize: "12px" }}>
+                          Hora de apertura:
+                        </label>
                         <select
                           value={openHour}
                           onChange={(e) => setOpenHour(e.target.value)}
-                          style={{ padding: "2px", marginTop: "5px",height:"18px", fontSize:"11px", width:"100%" }}
+                          style={{
+                            padding: "2px",
+                            marginTop: "5px",
+                            height: "18px",
+                            fontSize: "11px",
+                            width: "100%",
+                          }}
                         >
                           {timeOptions.map((time) => (
                             <option key={time} value={time}>
@@ -273,11 +359,19 @@ const EditPage = () => {
                         </select>
                       </div>
                       <div>
-                        <label style={{fontSize:"12px"}}>Hora de cierre:</label>
+                        <label style={{ fontSize: "12px" }}>
+                          Hora de cierre:
+                        </label>
                         <select
                           value={closeHour}
                           onChange={(e) => setCloseHour(e.target.value)}
-                          style={{ padding: "2px", marginTop: "5px",height:"18px", fontSize:"11px", width:"100%" }}
+                          style={{
+                            padding: "2px",
+                            marginTop: "5px",
+                            height: "18px",
+                            fontSize: "11px",
+                            width: "100%",
+                          }}
                         >
                           {timeOptions.map((time) => (
                             <option key={time} value={time}>
@@ -398,7 +492,17 @@ const EditPage = () => {
               {/* Caja derecha */}
               <div className="right-box">
                 <p>Contenido derecha</p>
-                <button style={{height:"40px", width:"100%" , backgroundColor:"red", cursor:"pointer"}} onClick={handleCreate}>CREAR</button>
+                <button
+                  style={{
+                    height: "40px",
+                    width: "100%",
+                    backgroundColor: "red",
+                    cursor: "pointer",
+                  }}
+                  onClick={handleCreate}
+                >
+                  CREAR
+                </button>
               </div>
             </div>
           </div>

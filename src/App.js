@@ -9,6 +9,7 @@ import Apariencia from "./pages/Apariencia";
 import Home from "./components/Home";
 import EditPage from './pages/EditPage';
 import "./styles/global.css";
+import FinalPage from "./pages/FinalPage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="revenue" element={<Revenue />} />
         </Route>
         <Route path="/edit" element={<EditPage />} />
+        <Route path="/final" element={<FinalPage />} />
         
       </Routes>
     </Router>
