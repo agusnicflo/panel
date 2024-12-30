@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Silhouette1 = ({
-  isAdmin,  // Nueva propiedad para verificar si es admin
+  isAdmin, // Nueva propiedad para verificar si es admin
   showButton,
   showButton2,
   socialUrl,
@@ -15,7 +15,7 @@ const Silhouette1 = ({
   closeHour,
   updateFinalData,
 }) => {
-  const navigate = useNavigate();  // Hook de react-router
+  const navigate = useNavigate(); // Hook de react-router
   const [profileImage, setProfileImage] = useState(null);
   const [socialIcons, setSocialIcons] = useState([]);
 
@@ -24,18 +24,66 @@ const Silhouette1 = ({
   const [openDaysState, setOpenDaysState] = useState(openDays || []);
   const [showButtonState, setShowButtonState] = useState(showButton);
   const [showButton2State, setShowButton2State] = useState(showButton2);
-  
 
+  useEffect(() => {
+    // Cargar datos desde localStorage
+    const storedData = JSON.parse(localStorage.getItem("silhouette1")) || {};
+    setProfileImage(storedData.profileImage || null);
+    setSocialIcons(storedData.socialIcons || []);
+    setOpenHourState(storedData.openHour || openHour);
+    setCloseHourState(storedData.closeHour || closeHour);
+    setOpenDaysState(storedData.openDays || openDays || []);
+    setShowButtonState(
+      storedData.showButton !== undefined ? storedData.showButton : showButton
+    );
+    setShowButton2State(
+      storedData.showButton2 !== undefined
+        ? storedData.showButton2
+        : showButton2
+    );
+  }, []);
 
+  useEffect(() => {
+    // Guardar datos en localStorage
+    const silhouetteData = {
+      profileImage,
+      socialIcons,
+      openHour: openHourState,
+      closeHour: closeHourState,
+      openDays: openDaysState,
+      showButton: showButtonState,
+      showButton2: showButton2State,
+    };
+    localStorage.setItem("silhouette1", JSON.stringify(silhouetteData));
 
+    // Actualizar datos en EditPage
+    if (updateFinalData) {
+      updateFinalData({ silhouette1: silhouetteData });
+    }
+  }, [
+    profileImage,
+    socialIcons,
+    openHourState,
+    closeHourState,
+    openDaysState,
+    showButtonState,
+    showButton2State,
+    updateFinalData,
+  ]);
   /*const addSocialIcon = (url) => {
     if (url) {
       setSocialIcons((prevIcons) => [...prevIcons, url]);
     }
   };*/
 
+  useEffect(() => {
+    if (selectedImage) {
+      localStorage.setItem("selectedImage", selectedImage);
+    }
+  }, [selectedImage]);
+
   const handleServiciosClick = () => {
-    navigate("./Silhouette3"); // Asumiendo que el componente Silhouette3 está en esta ruta
+    navigate("./silhouette3"); // Asumiendo que el componente Silhouette3 está en esta ruta
   };
 
   useEffect(() => {
@@ -97,7 +145,6 @@ const Silhouette1 = ({
   ]);
 
   useEffect(() => {
-    
     updateFinalData({
       silhouette1: {
         profileImage,
@@ -129,7 +176,7 @@ const Silhouette1 = ({
   useEffect(() => {
     setOpenHourState(openHour);
   }, [openHour]);
-  
+
   useEffect(() => {
     setCloseHourState(closeHour);
   }, [closeHour]);
@@ -183,9 +230,9 @@ const Silhouette1 = ({
 
       {/* Mostrar el botón si showButtonState es true */}
       <div>
-        {showButtonState &&(
+        {showButtonState && (
           <button
-          onClick={isAdmin ? null : handleServiciosClick}
+            onClick={isAdmin ? null : handleServiciosClick}
             style={{
               position: "absolute",
               top: "42%",
@@ -242,7 +289,7 @@ const Silhouette1 = ({
             />
           </div>
         )}
-      </div> 
+      </div>
     </div>
   );
 };
