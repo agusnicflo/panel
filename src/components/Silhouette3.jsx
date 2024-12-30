@@ -20,11 +20,13 @@ const Silhouette3 = ({ openHour, closeHour, openDays }) => {
 
 
 
+  // Actualizamos el estado del horario cuando cambian los props
   useEffect(() => {
     setSchedule({ openHour, closeHour, openDays });
   }, [openHour, closeHour, openDays]);
 
   const openDaysArray = schedule.openDays || [];
+
 
   return (
     <div className="silhouette3">
@@ -38,7 +40,7 @@ const Silhouette3 = ({ openHour, closeHour, openDays }) => {
       </div>
       <div className="divscontainer">
         <div className="columnturnos1">
-          <label>08:00 am</label>
+          <label>{openHour} am</label>
           <div className="vertical-line"></div>
           <label>09:00 am</label>
           <div className="vertical-line"></div>
@@ -50,7 +52,7 @@ const Silhouette3 = ({ openHour, closeHour, openDays }) => {
           <div className="vertical-line"></div>
           <label>09:00 am</label>
           <div className="vertical-line"></div>
-          <label>10:00 am</label>
+          <label>{closeHour} am</label>
         </div>
         <div className="columnturnos2">
           <button className="btnagenda">Agendar turno</button>
