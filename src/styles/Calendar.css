@@ -12,18 +12,18 @@
 
 /* Selector de fechas */
 .date-picker {
-    display: flex;
-    text-align: center;
-    justify-content: center;
+  display: flex;
+  text-align: center;
+  justify-content: center;
   margin-bottom: 20px;
 
   cursor: pointer;
 }
 
 .date-input {
-    display: flex;
-    text-align: center;
-    justify-content: center;
+  display: flex;
+  text-align: center;
+  justify-content: center;
   padding: 10px;
   font-size: 16px;
   border: none;
@@ -34,13 +34,13 @@
   cursor: pointer;
 }
 
-.btnarrow{
- border: 1px solid rgba(128, 128, 128, 0.199);
- border-radius: 5px;
- background-color: white;
- width: 40px;
- color: gray;
- cursor: pointer;
+.btnarrow {
+  border: 1px solid rgba(128, 128, 128, 0.199);
+  border-radius: 5px;
+  background-color: white;
+  width: 40px;
+  color: gray;
+  cursor: pointer;
 }
 
 /* Calendario */
@@ -110,20 +110,19 @@
   background-color: #fff;
   cursor: pointer;
   height: 150px;
-  
 }
 
 .cell:hover {
   background-color: #f0f0f0;
 }
 
-.btnpagos{
-    margin-right: 10px;
-    border-radius: 5px;
-    padding: 9px 22px;
-    border: none;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
-    background-color: white;
-    color: gray;
-    font-weight: bold;
+.btnpagos {
+  margin-right: 10px;
+  border-radius: 5px;
+  padding: 9px 22px;
+  border: none;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  color: gray;
+  font-weight: bold;
 }

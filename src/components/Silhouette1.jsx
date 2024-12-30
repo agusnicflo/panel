@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Silhouette1 = ({
+  isAdmin,  // Nueva propiedad para verificar si es admin
   showButton,
   showButton2,
   socialUrl,
@@ -12,16 +14,17 @@ const Silhouette1 = ({
   openDays,
   closeHour,
   updateFinalData,
-  isAdmin, // Nueva propiedad para determinar si es admin o no
 }) => {
+  const navigate = useNavigate();  // Hook de react-router
   const [profileImage, setProfileImage] = useState(null);
   const [socialIcons, setSocialIcons] = useState([]);
 
   const [openHourState, setOpenHourState] = useState(openHour);
   const [closeHourState, setCloseHourState] = useState(closeHour);
-  const [openDaysState, setOpenDaysState] = useState(openDays);
+  const [openDaysState, setOpenDaysState] = useState(openDays || []);
   const [showButtonState, setShowButtonState] = useState(showButton);
   const [showButton2State, setShowButton2State] = useState(showButton2);
+  
 
 
 
@@ -31,7 +34,9 @@ const Silhouette1 = ({
     }
   };*/
 
-
+  const handleServiciosClick = () => {
+    navigate("./Silhouette3"); // Asumiendo que el componente Silhouette3 está en esta ruta
+  };
 
   useEffect(() => {
     const storedProfileImage = localStorage.getItem("profileImage");
@@ -92,6 +97,7 @@ const Silhouette1 = ({
   ]);
 
   useEffect(() => {
+    
     updateFinalData({
       silhouette1: {
         profileImage,
@@ -133,18 +139,6 @@ const Silhouette1 = ({
     setShowButton2State(showButton2);
   }, [showButton, showButton2]);
 
-  // Función para manejar el click de los botones, solo si no es admin
-  const handleButtonClick = (buttonType) => {
-    if (!isAdmin) {
-      if (buttonType === "servicios") {
-        // Redirigir a la página de servicios
-        window.location.href = "/servicios"; // O puedes usar React Router si lo tienes configurado
-      } else if (buttonType === "agendar") {
-        // Redirigir a la página de agendar turnos
-        window.location.href = "/agendar-turnos"; // O puedes usar React Router si lo tienes configurado
-      }
-    }
-  };
   return (
     <div style={{ marginTop: "25%" }}>
       {profileImage && (
@@ -189,12 +183,9 @@ const Silhouette1 = ({
 
       {/* Mostrar el botón si showButtonState es true */}
       <div>
-        {showButtonState && (
+        {showButtonState &&(
           <button
-            onClick={() => {
-              if (!isAdmin) handleButtonClick("servicios");
-            }}
-            disabled={isAdmin} // Deshabilitar el botón si es admin
+          onClick={isAdmin ? null : handleServiciosClick}
             style={{
               position: "absolute",
               top: "42%",
@@ -215,9 +206,6 @@ const Silhouette1 = ({
         {/* Botón del Switch 2 */}
         {showButton2State && (
           <button
-            onClick={() => {
-              if (!isAdmin) handleButtonClick("agendar");
-            }}
             style={{
               position: "absolute",
               top: "50%", // Botón más abajo que el anterior

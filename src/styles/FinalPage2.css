@@ -1,0 +1,34 @@
+.image-containers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 280px;
+    margin-top: 15%;
+    margin-left: 10%;
+  }
+  
+  .image-container2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuye contenido con espacio entre áreas */
+    align-items: center;
+    width: 80px;
+    height: 200px;
+    border: 1px solid #cccccc8a;
+    margin: 1px;
+    border-radius: 10px;
+  }
+  
+  .image-selection-area {
+    flex: 1; /* Ocupa el espacio disponible para el botón */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .image-container2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }

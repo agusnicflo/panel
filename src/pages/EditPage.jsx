@@ -10,7 +10,10 @@ import Silhouette2 from "../components/Silhouette2";
 import Silhouette3 from "../components/Silhouette3";
 import Silhouette4 from "../components/Silhouette4";
 
-const EditPage = ({ openHour: initialOpenHour, closeHour: initialCloseHour }) => {
+const EditPage = ({
+  openHour: initialOpenHour,
+  closeHour: initialCloseHour,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedColor, setSelectedColor] = useState("#ffffff"); // Color predeterminado
   const [secondColor, setSecondColor] = useState("#ffffff");
@@ -23,17 +26,22 @@ const EditPage = ({ openHour: initialOpenHour, closeHour: initialCloseHour }) =>
   const [selectedImage, setSelectedImage] = useState(null); // Imagen seleccionada para la silueta
   const [imageFit, setImageFit] = useState("cover"); // Valor inicial: "cover"
   const [timeInterval, setTimeInterval] = useState("30"); // Intervalo de tiempo: 20, 30, 60
-  const [openHour, setOpenHour] = useState(initialOpenHour || "08:00");  // Estado local para openHour
-  const [closeHour, setCloseHour] = useState(initialCloseHour || "18:00");  // Estado local para closeHour
+  const [openHour, setOpenHour] = useState(initialOpenHour || "08:00"); // Estado local para openHour
+  const [closeHour, setCloseHour] = useState(initialCloseHour || "18:00"); // Estado local para closeHour
   const [openDays, setOpenDays] = useState([]); // Días seleccionados
-  const [profileImage, /*setProfileImage*/] = useState(null);
-  const [showButton, /*setShowButton*/] = useState(false);
-  const [showButton2, /*setShowButton2*/] = useState(false);
-  const [containers, /*setContainers*/] = useState([]);
-  const [selectedDay, /*setSelectedDay*/] = useState(null);
-  const [selectedTime, /*setSelectedTime*/] = useState(null);
+  const [profileImage /*setProfileImage*/] = useState(null);
+  const [showButton /*setShowButton*/] = useState(false);
+  const [showButton2 /*setShowButton2*/] = useState(false);
+  const [containers /*setContainers*/] = useState([]);
+  const [selectedDay /*setSelectedDay*/] = useState(null);
+  const [selectedTime /*setSelectedTime*/] = useState(null);
   const [selectedServiceImage, setSelectedServiceImage] = useState(null);
   const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    // Redirige a la página final
+    navigate("/final");
+  };
 
   const handleCreate = () => {
     const finalData = {
@@ -499,7 +507,7 @@ const EditPage = ({ openHour: initialOpenHour, closeHour: initialCloseHour }) =>
                     backgroundColor: "red",
                     cursor: "pointer",
                   }}
-                  onClick={handleCreate}
+                  onClick={handleNavigate}
                 >
                   CREAR
                 </button>
